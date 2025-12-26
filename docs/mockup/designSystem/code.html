@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Biker Shop - Design System</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Inter+Tight:wght@700;800;900&amp;family=Oswald:wght@400;500;700&amp;family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f26c0d",        // Burnt Orange
+                        "accent": "#6d28d9",         // Deep Purple
+                        "background-dark": "#181411",// Near Black
+                        "background-card": "#392f28",// Dark Graphite
+                        "text-secondary": "#6B7280", // Steel Gray
+                        "background-light": "#F8F7F5",// Off White
+                    },
+                    fontFamily: {
+                        "display": ["Oswald", "Inter Tight", "sans-serif"], // Headlines
+                        "body": ["Inter", "Roboto", "sans-serif"],          // Body text
+                        "mono": ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "monospace"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#111418] dark:text-white font-body overflow-x-hidden transition-colors duration-200">
+<div class="relative flex h-auto min-h-screen w-full flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[#e5e7eb] dark:border-[#392f28] px-10 py-3 bg-background-light dark:bg-[#181411]">
+<div class="flex items-center gap-4 text-[#111418] dark:text-white">
+<div class="size-8 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[32px]">two_wheeler</span>
+</div>
+<h2 class="text-xl font-display font-bold leading-tight tracking-wide uppercase">Biker Shop</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<div class="hidden md:flex items-center gap-9">
+<a class="text-sm font-medium leading-normal hover:text-primary transition-colors font-body" href="#">Home</a>
+<a class="text-sm font-medium leading-normal hover:text-primary transition-colors font-body" href="#">Shop</a>
+<a class="text-sm font-medium leading-normal text-primary font-body" href="#">Design System</a>
+<a class="text-sm font-medium leading-normal hover:text-primary transition-colors font-body" href="#">Profile</a>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary hover:bg-primary/90 transition-colors text-white text-sm font-bold leading-normal tracking-[0.015em] font-body">
+<span class="truncate">Sign In</span>
+</button>
+</div>
+</header>
+<main class="layout-container flex h-full grow flex-col">
+<div class="px-4 md:px-10 lg:px-40 flex flex-1 justify-center py-10">
+<div class="layout-content-container flex flex-col max-w-[960px] flex-1 gap-12">
+<div class="flex flex-wrap gap-2 px-4">
+<a class="text-text-secondary dark:text-[#baa89c] text-sm font-medium leading-normal hover:text-primary font-body" href="#">Home</a>
+<span class="text-text-secondary dark:text-[#baa89c] text-sm font-medium leading-normal">/</span>
+<span class="text-[#111418] dark:text-white text-sm font-medium leading-normal font-body">Design System</span>
+</div>
+<div class="flex flex-col gap-4 px-4">
+<h1 class="text-4xl md:text-6xl font-display font-bold leading-tight uppercase tracking-tight">Design System</h1>
+<p class="text-[#4b5563] dark:text-[#baa89c] text-lg font-normal leading-relaxed max-w-2xl font-body">
+                        The visual language of the Biker Shop platform. This system ensures consistency, accessibility, and high performance across all digital touchpoints.
+                    </p>
+</div>
+<hr class="border-[#e5e7eb] dark:border-[#392f28] mx-4"/>
+<section class="flex flex-col gap-6 px-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">palette</span>
+<h2 class="text-2xl font-display font-bold leading-tight uppercase tracking-wide">Color Palette</h2>
+</div>
+<p class="text-[#4b5563] dark:text-[#baa89c] text-sm mb-4 font-body">
+                        Our palette reflects the rugged, high-performance nature of our products. High contrast ratios ensure readability in all lighting conditions.
+                    </p>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+<div class="flex flex-col gap-3 group cursor-pointer">
+<div class="w-full aspect-square rounded-xl bg-[#f26c0d] shadow-sm border border-black/5 dark:border-white/5 group-hover:scale-105 transition-transform"></div>
+<div class="flex flex-col">
+<span class="text-sm font-bold font-display tracking-wide">Burnt Orange</span>
+<span class="text-xs font-mono text-[#6b7280] dark:text-[#9ca3af]">#F26C0D</span>
+<span class="text-xs text-[#9ca3af] mt-1 font-body">Primary Actions</span>
+</div>
+</div>
+<div class="flex flex-col gap-3 group cursor-pointer">
+<div class="w-full aspect-square rounded-xl bg-[#6d28d9] shadow-sm border border-black/5 dark:border-white/5 group-hover:scale-105 transition-transform"></div>
+<div class="flex flex-col">
+<span class="text-sm font-bold font-display tracking-wide">Deep Purple</span>
+<span class="text-xs font-mono text-[#6b7280] dark:text-[#9ca3af]">#6D28D9</span>
+<span class="text-xs text-[#9ca3af] mt-1 font-body">Accents &amp; Tags</span>
+</div>
+</div>
+<div class="flex flex-col gap-3 group cursor-pointer">
+<div class="w-full aspect-square rounded-xl bg-[#181411] shadow-sm border border-black/5 dark:border-white/10 group-hover:scale-105 transition-transform"></div>
+<div class="flex flex-col">
+<span class="text-sm font-bold font-display tracking-wide">Near Black</span>
+<span class="text-xs font-mono text-[#6b7280] dark:text-[#9ca3af]">#181411</span>
+<span class="text-xs text-[#9ca3af] mt-1 font-body">Background</span>
+</div>
+</div>
+<div class="flex flex-col gap-3 group cursor-pointer">
+<div class="w-full aspect-square rounded-xl bg-[#392f28] shadow-sm border border-black/5 dark:border-white/5 group-hover:scale-105 transition-transform"></div>
+<div class="flex flex-col">
+<span class="text-sm font-bold font-display tracking-wide">Dark Graphite</span>
+<span class="text-xs font-mono text-[#6b7280] dark:text-[#9ca3af]">#392F28</span>
+<span class="text-xs text-[#9ca3af] mt-1 font-body">Borders &amp; Cards</span>
+</div>
+</div>
+<div class="flex flex-col gap-3 group cursor-pointer">
+<div class="w-full aspect-square rounded-xl bg-[#6b7280] shadow-sm border border-black/5 dark:border-white/5 group-hover:scale-105 transition-transform"></div>
+<div class="flex flex-col">
+<span class="text-sm font-bold font-display tracking-wide">Steel Gray</span>
+<span class="text-xs font-mono text-[#6b7280] dark:text-[#9ca3af]">#6B7280</span>
+<span class="text-xs text-[#9ca3af] mt-1 font-body">Secondary Text</span>
+</div>
+</div>
+<div class="flex flex-col gap-3 group cursor-pointer">
+<div class="w-full aspect-square rounded-xl bg-[#f8f7f5] shadow-sm border border-black/10 dark:border-white/5 group-hover:scale-105 transition-transform"></div>
+<div class="flex flex-col">
+<span class="text-sm font-bold font-display tracking-wide">Off White</span>
+<span class="text-xs font-mono text-[#6b7280] dark:text-[#9ca3af]">#F8F7F5</span>
+<span class="text-xs text-[#9ca3af] mt-1 font-body">Text &amp; Light Bg</span>
+</div>
+</div>
+</div>
+</section>
+<hr class="border-[#e5e7eb] dark:border-[#392f28] mx-4"/>
+<section class="flex flex-col gap-8 px-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">text_fields</span>
+<h2 class="text-2xl font-display font-bold leading-tight uppercase tracking-wide">Typography</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="flex flex-col gap-8">
+<div class="flex flex-col gap-2">
+<span class="text-xs font-mono text-primary uppercase tracking-wider">Display H1 (Oswald)</span>
+<h1 class="text-6xl font-display font-bold tracking-tight uppercase leading-[1.0] dark:text-white">Ride Fast.<br/>Live Free.</h1>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-xs font-mono text-primary uppercase tracking-wider">Heading H2 (Inter Tight)</span>
+<h2 class="text-3xl font-[800] tracking-tight leading-tight font-display text-[#111418] dark:text-white">New Arrivals &amp; Gear</h2>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-xs font-mono text-primary uppercase tracking-wider">Heading H3 (Oswald)</span>
+<h3 class="text-xl font-display font-bold leading-normal uppercase tracking-wide text-[#111418] dark:text-white">Technical Specifications</h3>
+</div>
+</div>
+<div class="flex flex-col gap-8">
+<div class="flex flex-col gap-2">
+<span class="text-xs font-mono text-primary uppercase tracking-wider">Body Large (Inter)</span>
+<p class="text-lg text-[#4b5563] dark:text-[#baa89c] leading-relaxed font-body">
+                                    Designed for the modern rider, our platform connects you with the highest quality gear. We prioritize safety, style, and performance in every recommendation.
+                                </p>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-xs font-mono text-primary uppercase tracking-wider">Body Regular (Roboto)</span>
+<p class="text-base text-[#4b5563] dark:text-[#baa89c] leading-relaxed font-[Roboto]">
+                                    The search engine uses advanced algorithms to match your riding style with the perfect equipment. Whether you ride track, street, or dirt, we have you covered.
+                                </p>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-xs font-mono text-primary uppercase tracking-wider">Price / Numeric</span>
+<div class="flex items-baseline gap-4 font-body">
+<span class="text-3xl font-[700] tracking-tight text-white">$1,299.00</span>
+<span class="text-xl font-medium text-text-secondary line-through">$1,450.00</span>
+<span class="text-sm font-bold text-[#f26c0d] bg-[#f26c0d]/10 px-2 py-1 rounded">10% OFF</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<hr class="border-[#e5e7eb] dark:border-[#392f28] mx-4"/>
+<section class="flex flex-col gap-8 px-4 pb-12">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">widgets</span>
+<h2 class="text-2xl font-display font-bold leading-tight uppercase tracking-wide">Interface Components</h2>
+</div>
+<div class="bg-[#f3f4f6] dark:bg-background-card border border-[#e5e7eb] dark:border-[#392f28] rounded-xl p-8">
+<div class="flex flex-wrap items-end gap-8">
+<div class="flex flex-col gap-2">
+<span class="text-xs font-mono text-[#6b7280] dark:text-[#9ca3af] mb-1">Primary Button</span>
+<button class="flex items-center justify-center rounded-lg h-12 px-6 bg-primary hover:bg-[#d95e0b] active:scale-95 transition-all text-white font-display font-bold uppercase tracking-wider shadow-lg shadow-orange-900/20 text-sm">
+                                    Explore Collection
+                                </button>
+</div>
+<div class="flex flex-col gap-2">
+<span class="text-xs font-mono text-[#6b7280] dark:text-[#9ca3af] mb-1">Secondary Button</span>
+<button class="flex items-center justify-center rounded-lg h-12 px-6 bg-transparent border-2 border-[#e5e7eb] dark:border-white/10 hover:border-primary hover:text-primary text-[#111418] dark:text-white font-display font-bold uppercase tracking-wider transition-all text-sm">
+                                    View Details
+                                </button>
+</div>
+<div class="flex flex-col gap-2 grow max-w-sm">
+<span class="text-xs font-mono text-[#6b7280] dark:text-[#9ca3af] mb-1">Search / Input</span>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-[#6b7280]">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</div>
+<input class="w-full bg-white dark:bg-[#181411] text-[#111418] dark:text-white border border-[#e5e7eb] dark:border-[#52443d] rounded-lg h-12 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all placeholder:text-[#9ca3af] font-body" placeholder="Search for helmets, jackets..." type="text"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<footer class="border-t border-[#e5e7eb] dark:border-[#392f28] bg-background-light dark:bg-[#181411] py-8">
+<div class="flex flex-col items-center justify-center gap-4">
+<div class="flex items-center gap-2 text-[#6b7280]">
+<span class="material-symbols-outlined text-[20px]">copyright</span>
+<span class="text-sm font-medium font-body">2023 Biker Shop Design System</span>
+</div>
+</div>
+</footer>
+</div>
+
+</body></html>

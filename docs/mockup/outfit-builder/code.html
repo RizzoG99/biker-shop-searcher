@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Outfit Builder Results - Biker Shop</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f26c0d",
+                        "background-light": "#f8f7f5",
+                        "background-dark": "#181411", // Using the dark shade from the examples to match the aesthetic better
+                        "card-dark": "#27201b",
+                        "border-dark": "#392f28",
+                        "text-secondary": "#baa89c",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: "Space Grotesk", "Noto Sans", sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-slate-900 dark:text-white">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Header -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-dark px-6 py-4 lg:px-10 bg-background-dark sticky top-0 z-50">
+<div class="flex items-center gap-4 text-white">
+<div class="size-8 text-primary">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path d="M6 6H42L36 24L42 42H6L12 24L6 6Z"></path></svg>
+</div>
+<h2 class="text-white text-xl font-bold leading-tight tracking-[-0.015em]">Biker Shop</h2>
+</div>
+<div class="hidden lg:flex flex-1 justify-end gap-8">
+<nav class="flex items-center gap-9">
+<a class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Gear Search</a>
+<a class="text-primary text-sm font-medium leading-normal" href="#">Outfit Builder</a>
+<a class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">Deals</a>
+<a class="text-white hover:text-primary transition-colors text-sm font-medium leading-normal" href="#">My Garage</a>
+</nav>
+<button class="flex cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-6 bg-primary hover:bg-orange-600 transition-colors text-white text-sm font-bold leading-normal tracking-[0.015em]">
+<span class="truncate">Restart Builder</span>
+</button>
+</div>
+<div class="lg:hidden text-white">
+<span class="material-symbols-outlined">menu</span>
+</div>
+</header>
+<main class="flex-1 flex flex-col items-center py-8 px-4 lg:px-20">
+<div class="max-w-[1280px] w-full flex flex-col gap-8">
+<!-- Page Heading & Context -->
+<div class="flex flex-col gap-6">
+<div class="flex flex-wrap justify-between items-end gap-4 border-b border-border-dark pb-6">
+<div class="flex flex-col gap-2">
+<h1 class="text-white text-4xl lg:text-5xl font-black leading-tight tracking-[-0.033em]">Your Curated Loadouts</h1>
+<p class="text-text-secondary text-base lg:text-lg font-normal leading-normal">
+                                Based on <span class="text-white font-medium">Sport Touring</span> • 
+                                <span class="text-white font-medium">$1k Budget</span> • 
+                                <span class="text-white font-medium">All-Weather</span>
+</p>
+</div>
+<div class="flex gap-3 flex-wrap">
+<div class="flex items-center gap-2 px-4 py-2 rounded-full bg-card-dark border border-border-dark text-text-secondary text-sm">
+<span class="material-symbols-outlined text-base">attach_money</span>
+                                $500 - $1500
+                           </div>
+<div class="flex items-center gap-2 px-4 py-2 rounded-full bg-card-dark border border-border-dark text-text-secondary text-sm">
+<span class="material-symbols-outlined text-base">palette</span>
+                                Black/Red
+                           </div>
+<div class="flex items-center gap-2 px-4 py-2 rounded-full bg-card-dark border border-border-dark text-text-secondary text-sm">
+<span class="material-symbols-outlined text-base">sports_motorsports</span>
+                                Sport Touring
+                           </div>
+<button class="flex items-center justify-center size-9 rounded-full bg-primary/20 text-primary hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-sm">edit</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Pricing Cards / Loadout Columns -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+<!-- Card 1: Entry Spec -->
+<div class="flex flex-col gap-0 rounded-2xl border border-border-dark bg-card-dark overflow-hidden group hover:border-text-secondary transition-colors duration-300">
+<div class="p-6 border-b border-border-dark bg-[#1e1915]">
+<div class="flex items-center justify-between mb-2">
+<h3 class="text-text-secondary text-sm font-bold uppercase tracking-widest">Entry Spec</h3>
+<span class="text-white text-xs font-bold uppercase tracking-wide px-3 py-1 rounded-full bg-border-dark">Value</span>
+</div>
+<div class="flex items-baseline gap-1 text-white mb-6">
+<span class="text-4xl font-black tracking-[-0.033em]">$450</span>
+<span class="text-text-secondary text-sm font-medium">/ Total</span>
+</div>
+<button class="w-full h-12 flex items-center justify-center rounded-full border border-primary text-primary hover:bg-primary hover:text-white font-bold text-sm tracking-wide transition-colors">
+                                Shop Entry Spec
+                            </button>
+</div>
+<!-- List Items -->
+<div class="flex flex-col p-2 gap-1">
+<!-- Helmet -->
+<div class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors cursor-pointer group/item">
+<div class="bg-center bg-no-repeat bg-cover rounded-lg size-14 shrink-0 bg-white/5" data-alt="Black motorcycle helmet side view" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBrq-BPkTdDjzqYYwU8XiSKelDQeN2pAG2N1h3T5jOKOeeLO2n1Oa3eeRUWQilmDxgWGtmSbwW0WrZPU0HG-F4wfXShMbm6vrkRalWq9kC258qivWDSlZrl_prkABDA0UWSmoh3FfK-gfqq5N78ZxtLXj8GeKl5Cae-v-AJkOORd8rPPBnqn9_p6-8d-WHRO-0BMi0q585GrJeY5RCJxUEPpNgQEl0yB6i2ugPqvDGEHK5Uh-pACtRBz9YHou-PMX7kGNlWcwUCRtU");'></div>
+<div class="flex flex-col flex-1 min-w-0">
+<p class="text-white text-sm font-bold truncate group-hover/item:text-primary transition-colors">HJC i70 Helmet</p>
+<p class="text-text-secondary text-xs truncate">Polycarbonate • DOT Approved</p>
+<p class="text-white text-xs font-bold mt-1">$199</p>
+</div>
+<span class="material-symbols-outlined text-text-secondary">chevron_right</span>
+</div>
+<!-- Jacket -->
+<div class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors cursor-pointer group/item">
+<div class="bg-center bg-no-repeat bg-cover rounded-lg size-14 shrink-0 bg-white/5" data-alt="Textile motorcycle jacket front view" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAX0Phfhz-5ut1NXs_1_9RR_yG3lhh1nxfr3aZ6R0YCJ_XTvG_fo9mGOe7Y6ZOe-GPrR0R4XCH4rlzqDcE9GFwlPbkEZUnmyQaldlvZ63n-ICU5jno9XPazTBcqXXzyOmXbN4ynnVXj4Hjp--lUx9tkXsizW1Ao0QxOMUzFBWiMAWXxMHbqI6g5RddaV6WN2FWML8RO8dBSyGEA9IXAeegDCaDoJ2h3ZNSh-L0S9cQEOf9Usw8ApraXPGUV1ECGtPiONtJs3o_0Pcs");'></div>
+<div class="flex flex-col flex-1 min-w-0">
+<p class="text-white text-sm font-bold truncate group-hover/item:text-primary transition-colors">Joe Rocket Atomic</p>
+<p class="text-text-secondary text-xs truncate">Textile • Waterproof Liner</p>
+<p class="text-white text-xs font-bold mt-1">$160</p>
+</div>
+<span class="material-symbols-outlined text-text-secondary">chevron_right</span>
+</div>
+<!-- Gloves -->
+<div class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors cursor-pointer group/item">
+<div class="bg-center bg-no-repeat bg-cover rounded-lg size-14 shrink-0 bg-white/5" data-alt="Black motorcycle gloves pair" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuChjGGlJaY-_ZWtO4Fy58h2uHOskDTLqjxACEjZaPf7d6cA_Y3r3r0F6a3kxUics_OIWvfbO13KqkNq_CuS6X0hIhcduQVXyqCqHDUNNtF7uqPQXak18ovW90jSZ5jNNz77gAXco3tuYckG51fAisyw7NOVd7-XT6ahD5WGz-PFBvk_To8Mqf6u5F21uNBB7X5rAWu8ur6YjV8_W3PyqbhHfZVfavkVqkg9-Nq0MH6k4nTkYADAkPm_rrwvbSHSV3ni6VmykF_AA64");'></div>
+<div class="flex flex-col flex-1 min-w-0">
+<p class="text-white text-sm font-bold truncate group-hover/item:text-primary transition-colors">Alpinestars SMX-1</p>
+<p class="text-text-secondary text-xs truncate">Short Cuff • Touchscreen</p>
+<p class="text-white text-xs font-bold mt-1">$60</p>
+</div>
+<span class="material-symbols-outlined text-text-secondary">chevron_right</span>
+</div>
+<!-- Boots -->
+<div class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors cursor-pointer group/item">
+<div class="bg-center bg-no-repeat bg-cover rounded-lg size-14 shrink-0 bg-white/5" data-alt="Black motorcycle riding boots side view" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDggbwYYsgAEgMoqDKg7FSJ-DuuwJs6sQ27sqU2lrWxEyGh-m--FSJzjIrkQSQli8lD2e_-tIAP7VZA31Oz3bMrbwR6Bg9rDYWh0ByV3WymsLffogyYWE2ixaShDUI8IrFjgSxhhKzCyla78ZWkGNUMyDErl7zx6_-MWICn37cbXA8UW14DIMue_aTogmLBJdSN0UPX5KJdlbizt74BPUiJdDgSR2p8lfdg8GJ2-hYfRsM5ITVfZ-E-4TLy6eUdEOKsqTK8-q3ngZQ");'></div>
+<div class="flex flex-col flex-1 min-w-0">
+<p class="text-white text-sm font-bold truncate group-hover/item:text-primary transition-colors">TCX Street 3</p>
+<p class="text-text-secondary text-xs truncate">Casual Look • Reinforced</p>
+<p class="text-white text-xs font-bold mt-1">$140</p>
+</div>
+<span class="material-symbols-outlined text-text-secondary">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Rider's Choice (Highlighted) -->
+<div class="flex flex-col gap-0 rounded-2xl border-2 border-primary bg-card-dark overflow-hidden relative shadow-[0_0_40px_-10px_rgba(242,108,13,0.3)] transform lg:-translate-y-4 z-10">
+<div class="bg-primary px-4 py-1 text-center">
+<span class="text-white text-xs font-bold uppercase tracking-widest">Recommended Match</span>
+</div>
+<div class="p-6 border-b border-border-dark bg-[#1e1915]">
+<div class="flex items-center justify-between mb-2">
+<h3 class="text-primary text-sm font-bold uppercase tracking-widest">Rider's Choice</h3>
+<span class="text-white text-xs font-bold uppercase tracking-wide px-3 py-1 rounded-full bg-primary">Best Match</span>
+</div>
+<div class="flex items-baseline gap-1 text-white mb-6">
+<span class="text-5xl font-black tracking-[-0.033em] text-primary">$850</span>
+<span class="text-text-secondary text-sm font-medium">/ Total</span>
+</div>
+<button class="w-full h-12 flex items-center justify-center rounded-full bg-primary hover:bg-orange-600 text-white font-bold text-sm tracking-wide transition-colors shadow-lg shadow-orange-900/20">
+                                Shop This Loadout
+                            </button>
+</div>
+<!-- List Items -->
+<div class="flex flex-col p-2 gap-1">
+<!-- Helmet -->
+<div class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors cursor-pointer group/item bg-white/[0.02]">
+<div class="bg-center bg-no-repeat bg-cover rounded-lg size-16 shrink-0 bg-white/5" data-alt="Shoei RF-1400 helmet side profile" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCRzyevCC2kfcqoJrRe6XAly-cipkneeP9UKhh-MjmkApE_pSgp4EQe63V2v3zOwalODm1yZ05b341Ln14BQay_HbmGfZ1CqyWK1BnzcdM5ZOKhRCDm1s32Pgz4FWYWhOUTQ_J7LMPIA9kRIrkq3eAoIGTxlP1XfYegrMP52IM2b4AGLXW43wzYevPy_WgEQ9RzISksH3x11z3_DM-qINpIsIkCb4tsRdJXceT8kA394nxjO3Bl4_zuphPGj0QXoCnVoZt8fngSZF4");'></div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center gap-2">
+<p class="text-white text-base font-bold truncate group-hover/item:text-primary transition-colors">Shoei RF-1400</p>
+<span class="text-[10px] font-bold text-green-500 border border-green-500/30 bg-green-500/10 px-1 rounded">SNELL</span>
+</div>
+<p class="text-text-secondary text-sm truncate">Fiberglass • Aerodynamic</p>
+<p class="text-primary text-sm font-bold mt-1">$530</p>
+</div>
+<span class="material-symbols-outlined text-primary">check_circle</span>
+</div>
+<!-- Jacket -->
+<div class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors cursor-pointer group/item">
+<div class="bg-center bg-no-repeat bg-cover rounded-lg size-16 shrink-0 bg-white/5" data-alt="Revit eclipse jacket black mesh" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBBEP07nvjzE2ULL_McfV494tlKn7h9kWR1frfcFjZlEdeoQH6YCTh7aC0AuXCTCRENliglNV4JRykHQh67dH67dDoxdOJIMPzgpaIzbEaXKnRy31mUkRSXEP8jRMzeKH7NnxZa3-MmEhbUI-AlZiEmvcfPmBLhl0F1xNqYoTnEOHzyl4N5drBf0rko5AJltL635cXSw5T2Pz4xBSWyeN9sghFY9tktXp0VdZmYJhXzprjOksRxWwtr5-ww24nlF4n64AFCGBIoSnI");'></div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center gap-2">
+<p class="text-white text-base font-bold truncate group-hover/item:text-primary transition-colors">REV'IT! Eclipse</p>
+<span class="text-[10px] font-bold text-text-secondary border border-border-dark px-1 rounded">CE 1</span>
+</div>
+<p class="text-text-secondary text-sm truncate">Mesh Hybrid • High Airflow</p>
+<p class="text-white text-sm font-bold mt-1">$189</p>
+</div>
+<span class="material-symbols-outlined text-text-secondary">chevron_right</span>
+</div>
+<!-- Pants -->
+<div class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors cursor-pointer group/item">
+<div class="bg-center bg-no-repeat bg-cover rounded-lg size-16 shrink-0 bg-white/5" data-alt="Kevlar reinforced motorcycle jeans blue" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC2jFuCQSYRlZPW8jup7jd35Hdt5J85PJU06Ha5RB05bW-wvszH_2LyA_2sS2WUgNSMdsEm6CzCWN1wYFrn5cqmMEnn1s5aTHQ_8Yt3XTXFBdfjd_t6mUW2alun79iLilR6i-q1D-UgsT1rRCcoFNRXHffTIyhd1KEgOfwWpfOKf9vY6mkJ6yn-TQEVMkbfwcI1X4-2Z2WFztF9qrwM8IVaWRNuzIJ_IHU2_EW9FRmJydo1Mg4bdti65T4Nzcuvaw5i5nmFDmj8jlM");'></div>
+<div class="flex flex-col flex-1 min-w-0">
+<p class="text-white text-base font-bold truncate group-hover/item:text-primary transition-colors">Bull-it Tactical</p>
+<p class="text-text-secondary text-sm truncate">Covec Reinforced • Slim Fit</p>
+<p class="text-white text-sm font-bold mt-1">$140</p>
+</div>
+<span class="material-symbols-outlined text-text-secondary">chevron_right</span>
+</div>
+<!-- Gloves -->
+<div class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors cursor-pointer group/item">
+<div class="bg-center bg-no-repeat bg-cover rounded-lg size-16 shrink-0 bg-white/5" data-alt="Leather gauntlet motorcycle gloves black" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBcUgeaJGlLuWDxnDbWI4RsqYS6Pe9tJuYrjyDhp2Oq1BO4GO67yCrrksP8Obn4DQfestTN2y_YLGsD6Otv_TO9i2IhrP697EmudGDkJeBqoy88FngkpdfnnPIuB1rGMgVjNMLH1IIDEjaMEDi15GeVegfFNZpX9mLuTDxG9Ppp1qnfBsMLQt4ih7-roTeuB_zUtQMQNBrk6FVsdcu4T9g30ESsvMcnvXSxEDYZ5uO9KjgBv1WAOWYjaa8KnoraX2A4L0wSqr9aErE");'></div>
+<div class="flex flex-col flex-1 min-w-0">
+<p class="text-white text-base font-bold truncate group-hover/item:text-primary transition-colors">Dainese Blackjack</p>
+<p class="text-text-secondary text-sm truncate">Goatskin Leather • Classic</p>
+<p class="text-white text-sm font-bold mt-1">$90</p>
+</div>
+<span class="material-symbols-outlined text-text-secondary">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Card 3: Pro Spec -->
+<div class="flex flex-col gap-0 rounded-2xl border border-border-dark bg-card-dark overflow-hidden group hover:border-text-secondary transition-colors duration-300">
+<div class="p-6 border-b border-border-dark bg-[#1e1915]">
+<div class="flex items-center justify-between mb-2">
+<h3 class="text-text-secondary text-sm font-bold uppercase tracking-widest">Pro Spec</h3>
+<span class="text-white text-xs font-bold uppercase tracking-wide px-3 py-1 rounded-full bg-border-dark">Premium</span>
+</div>
+<div class="flex items-baseline gap-1 text-white mb-6">
+<span class="text-4xl font-black tracking-[-0.033em]">$1,400</span>
+<span class="text-text-secondary text-sm font-medium">/ Total</span>
+</div>
+<button class="w-full h-12 flex items-center justify-center rounded-full border border-primary text-primary hover:bg-primary hover:text-white font-bold text-sm tracking-wide transition-colors">
+                                Shop Pro Spec
+                            </button>
+</div>
+<!-- List Items -->
+<div class="flex flex-col p-2 gap-1">
+<!-- Helmet -->
+<div class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors cursor-pointer group/item">
+<div class="bg-center bg-no-repeat bg-cover rounded-lg size-14 shrink-0 bg-white/5" data-alt="Carbon fiber racing helmet" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDtrkYETaZZePPTdNjc4E82x_OdNQSzxql2-IYunrf55OgIF-UN-eRVhEKzoulI5-rnjZlwqSFnjCWTl7SnJcsoEOc_ONfCZsnDXvEOZS_oHXSKPfI8WBfx8hHhvalPk3DfmX4wZPxLijCdZ0QIVBsTHzYbo6AjvAwNclFD0hpY-2YSAD1xZqIEymNNJL6-6nB1VcnprHGODnEKydStfpPj9lmE_DfrzHTJjXXbmbM2HicibX3-IjM2WEqrLYsDwdIXfc274CkSBb4");'></div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center gap-2">
+<p class="text-white text-sm font-bold truncate group-hover/item:text-primary transition-colors">AGV Pista GP RR</p>
+<span class="text-[9px] font-bold text-yellow-500 border border-yellow-500/30 bg-yellow-500/10 px-1 rounded">FIM</span>
+</div>
+<p class="text-text-secondary text-xs truncate">Carbon Fiber • Pro Spoiler</p>
+<p class="text-white text-xs font-bold mt-1">$1,400</p>
+</div>
+<span class="material-symbols-outlined text-text-secondary">chevron_right</span>
+</div>
+<!-- Jacket -->
+<div class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors cursor-pointer group/item">
+<div class="bg-center bg-no-repeat bg-cover rounded-lg size-14 shrink-0 bg-white/5" data-alt="Dainese leather racing jacket" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBqDaARwcjCunRzvnU7cN3HAVzU52NXhvjrJoKfwNBDjxrMquxbBGjdLmqdjLn6gVAQbUZBrgrODCZF8RTW7JyQ80gtEWHdZtSLfh_lPTjpt_IxlRsMLmzNWcCZeALqiD6wgUBdj9KcQi27Msdz0DAAhpuMh5poU3xQafeLD-3CmaLoF5YR2CiigBRbFvTXoCuMHHzCz8Yzm4eR5dUcHpg3Z_9W79m8ocD42h-ey9YVFwIGCLaz0Y6Ojeo3WgjhSceIfakY0LLvKIk");'></div>
+<div class="flex flex-col flex-1 min-w-0">
+<div class="flex items-center gap-2">
+<p class="text-white text-sm font-bold truncate group-hover/item:text-primary transition-colors">Dainese Super Speed</p>
+<span class="text-[9px] font-bold text-text-secondary border border-border-dark px-1 rounded">CE 2</span>
+</div>
+<p class="text-text-secondary text-xs truncate">Perforated Leather • Aluminum</p>
+<p class="text-white text-xs font-bold mt-1">$850</p>
+</div>
+<span class="material-symbols-outlined text-text-secondary">chevron_right</span>
+</div>
+<!-- Pants -->
+<div class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors cursor-pointer group/item">
+<div class="bg-center bg-no-repeat bg-cover rounded-lg size-14 shrink-0 bg-white/5" data-alt="Leather motorcycle pants black" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBLtNQt5HZQO1AsGxYNCuV10AZVeKjREmTWSlmy7yXzX1byoVW1srmXYXuc-qgt2U2mEcLttxirI_R-0hAZl3VSBaAneVB_duuonPkfbMDiRyGce68cANBCibwK9yrUGLgZ4QR96AUeDVwwbRB3FizFSfa5AA2SH_dmsn60qtM94okg3WWEvdqGcYmf1VJon-D9f2okaYIXciGcPlTDVV_L615I2hEYGBYSlPR4_zVxjXzZyhZXNYxI9MAAI0yLEzLAD2oWy3KrbY0");'></div>
+<div class="flex flex-col flex-1 min-w-0">
+<p class="text-white text-sm font-bold truncate group-hover/item:text-primary transition-colors">Dainese Misano</p>
+<p class="text-text-secondary text-xs truncate">D-Skin 2.0 Leather</p>
+<p class="text-white text-xs font-bold mt-1">$600</p>
+</div>
+<span class="material-symbols-outlined text-text-secondary">chevron_right</span>
+</div>
+<!-- Boots -->
+<div class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors cursor-pointer group/item">
+<div class="bg-center bg-no-repeat bg-cover rounded-lg size-14 shrink-0 bg-white/5" data-alt="High tech motorcycle racing boots" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAKsuTfr94-Ti571syAeztSI-aEKNy_lp44vXt0rDIAnxzydZjouNCXUbMFlKcXTEpL-uRAmgANozuGMOXp4eFCzaw2PFo-VCAX8rv6HNY8gXk9SrQdFB2GXycKIP_V6N_Ae5P9Ib1TGjO1Txs7kJoNUy3GwKh1tQ6THXn83C1mjoyr4a7sdF4eqObgc8i-o5XRkCGWMy7h7skzynKXZ8nhLMibLhAfAjLKaZEUv__TOk5bKSPTSXdMLWQNSSJSRSD6dKAoa7TeDSs");'></div>
+<div class="flex flex-col flex-1 min-w-0">
+<p class="text-white text-sm font-bold truncate group-hover/item:text-primary transition-colors">Sidi Rex</p>
+<p class="text-text-secondary text-xs truncate">Technomicro • Replaceable Slider</p>
+<p class="text-white text-xs font-bold mt-1">$525</p>
+</div>
+<span class="material-symbols-outlined text-text-secondary">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Summary/Disclaimer -->
+<div class="flex justify-center mt-4 mb-10">
+<p class="text-text-secondary text-sm text-center max-w-2xl">
+                        Prices are estimates based on current deals. Availability subject to change. <a class="text-primary hover:underline" href="#">Read our fitting guide</a> before purchasing.
+                    </p>
+</div>
+</div>
+</main>
+</div>
+</body></html>

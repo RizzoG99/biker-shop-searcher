@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #F8F7F5;
+    --foreground: #111418;
+  }
+
+  .dark {
+    --background: #181411;
+    --foreground: #ffffff;
+  }
+
+  body {
+    @apply bg-background-dark text-white font-body;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
