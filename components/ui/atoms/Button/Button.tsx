@@ -63,9 +63,15 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {isLoading ? (
-          <span className="material-symbols-outlined animate-spin">
-            progress_activity
-          </span>
+          <>
+            <span
+              className="material-symbols-outlined animate-spin"
+              aria-hidden="true"
+            >
+              progress_activity
+            </span>
+            <span className="sr-only">Loading</span>
+          </>
         ) : (
           <>
             {leftIcon && (

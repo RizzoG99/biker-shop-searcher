@@ -77,7 +77,7 @@ export const CardHeader: React.FC<CardHeaderProps> = ({
   return (
     <div
       className={cn(
-        'p-6 border-b border-border-dark bg-[#1e1915]',
+        'p-6 border-b border-border-dark bg-card-graphite',
         className
       )}
       {...props}
@@ -107,7 +107,7 @@ export const CardFooter: React.FC<CardFooterProps> = ({
   return (
     <div
       className={cn(
-        'p-6 border-t border-border-dark bg-[#1e1915]',
+        'p-6 border-t border-border-dark bg-card-graphite',
         className
       )}
       {...props}

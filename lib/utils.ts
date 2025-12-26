@@ -8,12 +8,3 @@ import { twMerge } from 'tailwind-merge'
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
-
-/**
- * Generate unique IDs for accessibility
- */
-let idCounter = 0
-export function generateId(prefix: string = 'id'): string {
-  idCounter += 1
-  return `${prefix}-${idCounter}`
-}
