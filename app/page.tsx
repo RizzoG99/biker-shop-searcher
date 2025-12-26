@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Button } from '@/components/ui/atoms/Button'
 import { Input } from '@/components/ui/atoms/Input'
 import { Badge } from '@/components/ui/atoms/Badge'
@@ -32,7 +33,7 @@ export default function Home() {
             </a>
             <a
               className="text-white hover:text-primary transition-colors text-sm font-medium leading-normal"
-              href="#"
+              href="/outfit-builder"
             >
               Outfit Builder
             </a>
@@ -73,12 +74,16 @@ export default function Home() {
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button variant="primary" size="lg" leftIcon="sports_motorsports">
-                    Build Your Outfit
-                  </Button>
-                  <Button variant="secondary" size="lg" leftIcon="search">
-                    Browse Gear
-                  </Button>
+                  <Link href="/outfit-builder">
+                    <Button variant="primary" size="lg" leftIcon="sports_motorsports">
+                      Build Your Outfit
+                    </Button>
+                  </Link>
+                  <Link href="/outfit-builder">
+                    <Button variant="secondary" size="lg" leftIcon="search">
+                      Browse Gear
+                    </Button>
+                  </Link>
                 </div>
 
                 {/* Optional Search Bar */}
@@ -425,9 +430,11 @@ export default function Home() {
               Join 50,000+ riders who trust us to find their perfect gear
             </p>
             <div className="flex justify-center">
-              <Button variant="primary" size="lg" rightIcon="arrow_forward" className="w-full sm:w-auto">
-                Start Building Your Outfit
-              </Button>
+              <Link href="/outfit-builder">
+                <Button variant="primary" size="lg" rightIcon="arrow_forward" className="w-full sm:w-auto">
+                  Start Building Your Outfit
+                </Button>
+              </Link>
             </div>
           </div>
         </section>

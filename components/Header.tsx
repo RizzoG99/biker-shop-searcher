@@ -33,7 +33,7 @@ export default function Header() {
           </a>
           <a
             className="text-white hover:text-primary transition-colors text-sm font-medium leading-normal"
-            href="#"
+            href="/outfit-builder"
           >
             Outfit Builder
           </a>
@@ -75,7 +75,7 @@ export default function Header() {
             </a>
             <a
               className="text-white hover:text-primary transition-colors text-sm font-medium leading-normal py-2"
-              href="#"
+              href="/outfit-builder"
             >
               Outfit Builder
             </a>
