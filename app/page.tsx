@@ -208,7 +208,7 @@ export default function Home() {
         </section>
 
         {/* Quick Stats Section */}
-        <section className="bg-[#1e1915] py-12">
+        <section className="bg-card-header py-12">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {/* Stat 1: Products */}
@@ -339,7 +339,7 @@ export default function Home() {
         </section>
 
         {/* Featured Products Section */}
-        <section className="py-16 lg:py-24 bg-[#1e1915]">
+        <section className="py-16 lg:py-24 bg-card-header">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-white text-4xl font-black font-display mb-4">

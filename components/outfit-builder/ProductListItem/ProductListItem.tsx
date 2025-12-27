@@ -1,14 +1,16 @@
 'use client'
 
 import React from 'react'
+import Image from 'next/image'
 import { cn } from '@/lib/utils'
 import { ProductListItemProps } from './ProductListItem.types'
+import { Certification } from '@/lib/types'
 
-const CERTIFICATION_COLORS = {
+const CERTIFICATION_COLORS: Record<Certification['color'], string> = {
   green: 'text-green-500 border-green-500/30 bg-green-500/10',
   yellow: 'text-yellow-500 border-yellow-500/30 bg-yellow-500/10',
   gray: 'text-text-secondary border-border-dark',
-}
+} as const
 
 export const ProductListItem: React.FC<ProductListItemProps> = ({
   product,
@@ -33,13 +35,18 @@ export const ProductListItem: React.FC<ProductListItemProps> = ({
       {/* Product Image */}
       <div
         className={cn(
-          'bg-center bg-no-repeat bg-cover rounded-lg shrink-0 bg-white/5',
+          'relative rounded-lg shrink-0 bg-white/5 overflow-hidden',
           imageSize
         )}
-        style={{ backgroundImage: `url("${product.imageUrl}")` }}
-        role="img"
-        aria-label={product.imageAlt}
-      />
+      >
+        <Image
+          src={product.imageUrl}
+          alt={product.imageAlt}
+          fill
+          sizes={size === 'md' ? '64px' : '56px'}
+          className="object-cover"
+        />
+      </div>
 
       {/* Product Info */}
       <div className="flex flex-col flex-1 min-w-0">

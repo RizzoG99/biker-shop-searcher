@@ -34,7 +34,7 @@ export const OutfitCard: React.FC<OutfitCardProps> = ({
       )}
 
       {/* Header Section */}
-      <div className="p-6 border-b border-border-dark bg-[#1e1915]">
+      <div className="p-6 border-b border-border-dark bg-card-header">
         <div className="flex items-center justify-between mb-2">
           <h3
             className={cn(
