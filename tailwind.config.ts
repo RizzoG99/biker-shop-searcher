@@ -14,6 +14,7 @@ const config: Config = {
         accent: "#6d28d9",         // Deep Purple
         "background-dark": "#181411",    // Near Black
         "card-dark": "#27201b",    // Dark Card Background
+        "card-header": "#1e1915",  // Card Header Background (slightly lighter than background-dark)
         "card-graphite": "#392f28", // Dark Graphite
         "border-dark": "#392f28",  // Border color
         "text-secondary": "#baa89c", // Beige/Gray for secondary text
@@ -29,6 +30,9 @@ const config: Config = {
         lg: "2rem",
         xl: "3rem",
         full: "9999px",
+      },
+      boxShadow: {
+        "primary-glow": "0 0 40px -10px rgba(242, 108, 13, 0.3)",
       },
     },
   },

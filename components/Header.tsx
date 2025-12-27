@@ -1,8 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useState, ReactNode } from "react";
+import Link from "next/link";
 
-export default function Header() {
+interface HeaderProps {
+  /** Optional action button/element to display on the right side of desktop header */
+  rightAction?: ReactNode;
+}
+
+export default function Header({ rightAction }: HeaderProps = {}) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -18,39 +24,42 @@ export default function Header() {
           </svg>
         </div>
         <h2 className="text-white text-xl font-bold leading-tight tracking-[-0.015em] font-display">
-          Biker Shop
+          Biker Shop Searcher
         </h2>
       </div>
 
       {/* Desktop Navigation */}
       <div className="hidden lg:flex flex-1 justify-end gap-8">
         <nav className="flex items-center gap-9">
-          <a
+          <Link
             className="text-white hover:text-primary transition-colors text-sm font-medium leading-normal"
-            href="#"
+            href="/"
           >
             Gear Search
-          </a>
-          <a
+          </Link>
+          <Link
             className="text-white hover:text-primary transition-colors text-sm font-medium leading-normal"
-            href="#"
+            href="/outfit-builder"
           >
             Outfit Builder
-          </a>
-          <a
+          </Link>
+          <Link
             className="text-white hover:text-primary transition-colors text-sm font-medium leading-normal"
             href="#"
           >
             Deals
-          </a>
-          <a
+          </Link>
+          <Link
             className="text-white hover:text-primary transition-colors text-sm font-medium leading-normal"
             href="#"
           >
             My Garage
-          </a>
+          </Link>
         </nav>
       </div>
+
+      {/* Right Action (optional) */}
+      {rightAction && <div className="hidden lg:block">{rightAction}</div>}
 
       {/* Mobile Menu Button */}
       <button
@@ -67,30 +76,30 @@ export default function Header() {
       {mobileMenuOpen && (
         <div className="absolute top-full left-0 right-0 bg-card-dark border-b border-border-dark lg:hidden">
           <nav className="flex flex-col p-4 gap-4">
-            <a
+            <Link
               className="text-white hover:text-primary transition-colors text-sm font-medium leading-normal py-2"
-              href="#"
+              href="/"
             >
               Gear Search
-            </a>
-            <a
+            </Link>
+            <Link
               className="text-white hover:text-primary transition-colors text-sm font-medium leading-normal py-2"
-              href="#"
+              href="/outfit-builder"
             >
               Outfit Builder
-            </a>
-            <a
+            </Link>
+            <Link
               className="text-white hover:text-primary transition-colors text-sm font-medium leading-normal py-2"
               href="#"
             >
               Deals
-            </a>
-            <a
+            </Link>
+            <Link
               className="text-white hover:text-primary transition-colors text-sm font-medium leading-normal py-2"
               href="#"
             >
               My Garage
-            </a>
+            </Link>
           </nav>
         </div>
       )}

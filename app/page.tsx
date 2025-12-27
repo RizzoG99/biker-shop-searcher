@@ -32,7 +32,7 @@ export default function Home() {
             </a>
             <a
               className="text-white hover:text-primary transition-colors text-sm font-medium leading-normal"
-              href="#"
+              href="/outfit-builder"
             >
               Outfit Builder
             </a>
@@ -73,10 +73,20 @@ export default function Home() {
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button variant="primary" size="lg" leftIcon="sports_motorsports">
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    leftIcon="sports_motorsports"
+                    href="/outfit-builder"
+                  >
                     Build Your Outfit
                   </Button>
-                  <Button variant="secondary" size="lg" leftIcon="search">
+                  <Button
+                    variant="secondary"
+                    size="lg"
+                    leftIcon="search"
+                    href="/outfit-builder"
+                  >
                     Browse Gear
                   </Button>
                 </div>
@@ -203,7 +213,7 @@ export default function Home() {
         </section>
 
         {/* Quick Stats Section */}
-        <section className="bg-[#1e1915] py-12">
+        <section className="bg-card-header py-12">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {/* Stat 1: Products */}
@@ -334,7 +344,7 @@ export default function Home() {
         </section>
 
         {/* Featured Products Section */}
-        <section className="py-16 lg:py-24 bg-[#1e1915]">
+        <section className="py-16 lg:py-24 bg-card-header">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-white text-4xl font-black font-display mb-4">
@@ -425,7 +435,13 @@ export default function Home() {
               Join 50,000+ riders who trust us to find their perfect gear
             </p>
             <div className="flex justify-center">
-              <Button variant="primary" size="lg" rightIcon="arrow_forward" className="w-full sm:w-auto">
+              <Button
+                variant="primary"
+                size="lg"
+                rightIcon="arrow_forward"
+                className="w-full sm:w-auto"
+                href="/outfit-builder"
+              >
                 Start Building Your Outfit
               </Button>
             </div>

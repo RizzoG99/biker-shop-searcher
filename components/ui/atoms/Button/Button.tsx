@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react'
+import Link from 'next/link'
 import { cva } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 import { ButtonProps } from './Button.types'
@@ -47,46 +48,61 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       rightIcon,
       fullWidth,
       disabled,
+      href,
       ...props
     },
     ref
   ) => {
+    const buttonClasses = cn(
+      buttonVariants({ variant, size }),
+      fullWidth && 'w-full',
+      className
+    )
+
+    const buttonContent = isLoading ? (
+      <>
+        <span
+          className="material-symbols-outlined animate-spin"
+          aria-hidden="true"
+        >
+          progress_activity
+        </span>
+        <span className="sr-only">Loading</span>
+      </>
+    ) : (
+      <>
+        {leftIcon && (
+          <span className="material-symbols-outlined text-base">
+            {leftIcon}
+          </span>
+        )}
+        <span className="truncate">{children}</span>
+        {rightIcon && (
+          <span className="material-symbols-outlined text-base">
+            {rightIcon}
+          </span>
+        )}
+      </>
+    )
+
+    // Render as Link if href is provided
+    if (href) {
+      return (
+        <Link href={href} className={buttonClasses}>
+          {buttonContent}
+        </Link>
+      )
+    }
+
+    // Render as button by default
     return (
       <button
         ref={ref}
-        className={cn(
-          buttonVariants({ variant, size }),
-          fullWidth && 'w-full',
-          className
-        )}
+        className={buttonClasses}
         disabled={disabled || isLoading}
         {...props}
       >
-        {isLoading ? (
-          <>
-            <span
-              className="material-symbols-outlined animate-spin"
-              aria-hidden="true"
-            >
-              progress_activity
-            </span>
-            <span className="sr-only">Loading</span>
-          </>
-        ) : (
-          <>
-            {leftIcon && (
-              <span className="material-symbols-outlined text-base">
-                {leftIcon}
-              </span>
-            )}
-            <span className="truncate">{children}</span>
-            {rightIcon && (
-              <span className="material-symbols-outlined text-base">
-                {rightIcon}
-              </span>
-            )}
-          </>
-        )}
+        {buttonContent}
       </button>
     )
   }

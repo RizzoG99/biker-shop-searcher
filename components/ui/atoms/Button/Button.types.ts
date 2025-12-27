@@ -3,7 +3,7 @@ import { VariantProps } from 'class-variance-authority'
 import { buttonVariants } from './Button'
 
 export interface ButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement>,
+  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'href'>,
     VariantProps<typeof buttonVariants> {
   /** Button content */
   children: ReactNode
@@ -17,4 +17,6 @@ export interface ButtonProps
   fullWidth?: boolean
   /** Additional CSS classes */
   className?: string
+  /** Optional href - renders as Next.js Link instead of button */
+  href?: string
 }
