@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui/atoms/Button'
 
 export default function Error({
@@ -10,6 +11,8 @@ export default function Error({
   error: Error & { digest?: string }
   reset: () => void
 }) {
+  const router = useRouter()
+
   useEffect(() => {
     // Log the error to an error reporting service
     console.error('Outfit Builder Error:', error)
@@ -37,7 +40,7 @@ export default function Error({
           <Button
             variant="secondary"
             size="lg"
-            onClick={() => (window.location.href = '/')}
+            onClick={() => router.push('/')}
             leftIcon="home"
           >
             Go Home

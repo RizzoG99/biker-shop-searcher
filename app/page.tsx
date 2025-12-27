@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { Button } from '@/components/ui/atoms/Button'
 import { Input } from '@/components/ui/atoms/Input'
 import { Badge } from '@/components/ui/atoms/Badge'
@@ -74,16 +73,22 @@ export default function Home() {
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Link href="/outfit-builder">
-                    <Button variant="primary" size="lg" leftIcon="sports_motorsports">
-                      Build Your Outfit
-                    </Button>
-                  </Link>
-                  <Link href="/outfit-builder">
-                    <Button variant="secondary" size="lg" leftIcon="search">
-                      Browse Gear
-                    </Button>
-                  </Link>
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    leftIcon="sports_motorsports"
+                    href="/outfit-builder"
+                  >
+                    Build Your Outfit
+                  </Button>
+                  <Button
+                    variant="secondary"
+                    size="lg"
+                    leftIcon="search"
+                    href="/outfit-builder"
+                  >
+                    Browse Gear
+                  </Button>
                 </div>
 
                 {/* Optional Search Bar */}
@@ -430,11 +435,15 @@ export default function Home() {
               Join 50,000+ riders who trust us to find their perfect gear
             </p>
             <div className="flex justify-center">
-              <Link href="/outfit-builder">
-                <Button variant="primary" size="lg" rightIcon="arrow_forward" className="w-full sm:w-auto">
-                  Start Building Your Outfit
-                </Button>
-              </Link>
+              <Button
+                variant="primary"
+                size="lg"
+                rightIcon="arrow_forward"
+                className="w-full sm:w-auto"
+                href="/outfit-builder"
+              >
+                Start Building Your Outfit
+              </Button>
             </div>
           </div>
         </section>
