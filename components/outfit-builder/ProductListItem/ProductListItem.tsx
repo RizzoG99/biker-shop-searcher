@@ -45,6 +45,8 @@ export const ProductListItem: React.FC<ProductListItemProps> = ({
           fill
           sizes={size === 'md' ? '64px' : '56px'}
           className="object-cover"
+          loading="lazy"
+          quality={85}
         />
       </div>
 
@@ -60,12 +62,12 @@ export const ProductListItem: React.FC<ProductListItemProps> = ({
           >
             {product.name}
           </p>
-          {product.certifications.map((cert) => (
+          {product.certifications.map((cert, index) => (
             <span
-              key={cert.type}
+              key={`${cert.type}-${index}`}
               className={cn(
                 'text-[10px] font-bold border px-1 rounded',
-                CERTIFICATION_COLORS[cert.color]
+                CERTIFICATION_COLORS[cert.color] ?? CERTIFICATION_COLORS.gray
               )}
             >
               {cert.type}

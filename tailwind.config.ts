@@ -31,6 +31,9 @@ const config: Config = {
         xl: "3rem",
         full: "9999px",
       },
+      boxShadow: {
+        "primary-glow": "0 0 40px -10px rgba(242, 108, 13, 0.3)",
+      },
     },
   },
   plugins: [],

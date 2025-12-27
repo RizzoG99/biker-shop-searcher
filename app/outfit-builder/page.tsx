@@ -10,20 +10,32 @@ export default function OutfitBuilderPage() {
   const outfitResult = sportTouringOutfits
 
   // Placeholder handlers (Phase 1)
+  // TODO: Implement restart builder functionality in Phase 2
   const handleRestartBuilder = () => {
-    console.log('Restart Builder clicked')
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Restart Builder clicked')
+    }
   }
 
+  // TODO: Implement filter editing functionality in Phase 2
   const handleEditFilters = () => {
-    console.log('Edit Filters clicked')
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Edit Filters clicked')
+    }
   }
 
+  // TODO: Implement outfit CTA navigation in Phase 2 (navigate to checkout/product pages)
   const handleOutfitCta = (outfitId: string) => {
-    console.log('Outfit CTA clicked:', outfitId)
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Outfit CTA clicked:', outfitId)
+    }
   }
 
+  // TODO: Implement product detail page navigation in Phase 2
   const handleProductClick = (productId: string) => {
-    console.log('Product clicked:', productId)
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Product clicked:', productId)
+    }
   }
 
   return (

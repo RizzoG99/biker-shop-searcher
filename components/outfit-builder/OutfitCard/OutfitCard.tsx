@@ -19,7 +19,7 @@ export const OutfitCard: React.FC<OutfitCardProps> = ({
       className={cn(
         'flex flex-col gap-0 rounded-2xl bg-card-dark overflow-hidden group transition-colors duration-300',
         isRecommended
-          ? 'border-2 border-primary shadow-[0_0_40px_-10px_rgba(242,108,13,0.3)] lg:-translate-y-4 z-10'
+          ? 'border-2 border-primary shadow-primary-glow lg:-translate-y-4 z-10'
           : 'border border-border-dark hover:border-text-secondary',
         className
       )}
