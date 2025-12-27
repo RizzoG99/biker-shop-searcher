@@ -19,6 +19,10 @@ export const entryProducts: Product[] = [
     imageUrl: 'https://placehold.co/400x400/1a1a1a/white?text=HJC+i70',
     certifications: [{ type: 'DOT', color: 'gray' }],
     imageAlt: 'Black HJC i70 motorcycle helmet',
+    // Filtering metadata
+    color: 'Black',
+    ridingStyles: ['Street', 'Cruiser', 'Adventure'],
+    usageContexts: ['City Commute', 'Long Trip'],
   },
   {
     id: 'joe-rocket-atomic',
@@ -29,6 +33,10 @@ export const entryProducts: Product[] = [
     imageUrl: 'https://placehold.co/400x400/2a2a2a/white?text=Joe+Rocket',
     certifications: [],
     imageAlt: 'Joe Rocket Atomic textile jacket',
+    // Filtering metadata
+    color: 'Black',
+    ridingStyles: ['Adventure', 'Street', 'Cruiser'],
+    usageContexts: ['City Commute', 'Long Trip', 'Off-road'],
   },
   {
     id: 'scorpion-sgs-mk-ii',
@@ -39,6 +47,10 @@ export const entryProducts: Product[] = [
     imageUrl: 'https://placehold.co/400x400/1a1a1a/white?text=Scorpion',
     certifications: [{ type: 'CE', color: 'gray' }],
     imageAlt: 'Black Scorpion SGS MK II motorcycle gloves',
+    // Filtering metadata
+    color: 'Black',
+    ridingStyles: ['Street', 'Cruiser', 'Sport Touring'],
+    usageContexts: ['City Commute', 'Long Trip'],
   },
   {
     id: 'tcx-street-ace',
@@ -49,6 +61,10 @@ export const entryProducts: Product[] = [
     imageUrl: 'https://placehold.co/400x400/2a2a2a/white?text=TCX+Boots',
     certifications: [{ type: 'CE', color: 'gray' }],
     imageAlt: 'Black TCX Street Ace motorcycle boots',
+    // Filtering metadata
+    color: 'Black',
+    ridingStyles: ['Street', 'Cruiser', 'Adventure'],
+    usageContexts: ['City Commute', 'Long Trip'],
   },
 ]
 
@@ -66,6 +82,10 @@ export const ridersChoiceProducts: Product[] = [
     imageUrl: 'https://placehold.co/400x400/1a1a1a/22c55e?text=Shoei+RF-1400',
     certifications: [{ type: 'SNELL', color: 'green' }],
     imageAlt: 'Shoei RF-1400 racing helmet',
+    // Filtering metadata
+    color: 'Black',
+    ridingStyles: ['Sport Touring', 'Track', 'Street'],
+    usageContexts: ['Track Day', 'Long Trip', 'City Commute'],
   },
   {
     id: 'alpinestars-gp-plus-r-v3',
@@ -76,6 +96,10 @@ export const ridersChoiceProducts: Product[] = [
     imageUrl: 'https://placehold.co/400x400/2a2a2a/white?text=Alpinestars+Jacket',
     certifications: [{ type: 'CE', color: 'gray' }],
     imageAlt: 'Black Alpinestars GP Plus R v3 leather jacket',
+    // Filtering metadata
+    color: 'Black',
+    ridingStyles: ['Sport Touring', 'Track'],
+    usageContexts: ['Track Day', 'Long Trip'],
   },
   {
     id: 'alpinestars-sp-8-v3',
@@ -86,6 +110,10 @@ export const ridersChoiceProducts: Product[] = [
     imageUrl: 'https://placehold.co/400x400/1a1a1a/white?text=Alpinestars+Gloves',
     certifications: [{ type: 'CE2', color: 'gray' }],
     imageAlt: 'Alpinestars SP-8 v3 carbon knuckle gloves',
+    // Filtering metadata
+    color: 'Black',
+    ridingStyles: ['Sport Touring', 'Track'],
+    usageContexts: ['Track Day', 'City Commute'],
   },
   {
     id: 'alpinestars-smx-6-v2',
@@ -96,6 +124,10 @@ export const ridersChoiceProducts: Product[] = [
     imageUrl: 'https://placehold.co/400x400/2a2a2a/white?text=Alpinestars+Boots',
     certifications: [{ type: 'CE', color: 'gray' }],
     imageAlt: 'Alpinestars SMX-6 v2 racing boots',
+    // Filtering metadata
+    color: 'Black',
+    ridingStyles: ['Sport Touring', 'Track', 'Street'],
+    usageContexts: ['Track Day', 'Long Trip', 'City Commute'],
   },
 ]
 
@@ -113,6 +145,10 @@ export const proProducts: Product[] = [
     imageUrl: 'https://placehold.co/400x400/1a1a1a/eab308?text=AGV+Pista',
     certifications: [{ type: 'FIM', color: 'yellow' }],
     imageAlt: 'AGV Pista GP RR carbon fiber racing helmet',
+    // Filtering metadata
+    color: 'Red',
+    ridingStyles: ['Track'],
+    usageContexts: ['Track Day'],
   },
   {
     id: 'dainese-racing-4',
@@ -123,6 +159,10 @@ export const proProducts: Product[] = [
     imageUrl: 'https://placehold.co/400x400/2a2a2a/white?text=Dainese+Jacket',
     certifications: [{ type: 'CE', color: 'gray' }],
     imageAlt: 'Dainese Racing 4 leather suit jacket',
+    // Filtering metadata
+    color: 'Blue',
+    ridingStyles: ['Track', 'Sport Touring'],
+    usageContexts: ['Track Day'],
   },
   {
     id: 'dainese-full-metal-6',
@@ -133,6 +173,10 @@ export const proProducts: Product[] = [
     imageUrl: 'https://placehold.co/400x400/1a1a1a/white?text=Dainese+Gloves',
     certifications: [{ type: 'CE2', color: 'gray' }],
     imageAlt: 'Dainese Full Metal 6 racing gloves with carbon knuckles',
+    // Filtering metadata
+    color: 'White',
+    ridingStyles: ['Track', 'Sport Touring'],
+    usageContexts: ['Track Day'],
   },
   {
     id: 'alpinestars-supertech-r',
@@ -143,6 +187,10 @@ export const proProducts: Product[] = [
     imageUrl: 'https://placehold.co/400x400/2a2a2a/white?text=Supertech+R',
     certifications: [{ type: 'CE', color: 'gray' }],
     imageAlt: 'Alpinestars Supertech R racing boots',
+    // Filtering metadata
+    color: 'Lime',
+    ridingStyles: ['Track', 'Sport Touring'],
+    usageContexts: ['Track Day'],
   },
 ]
 
