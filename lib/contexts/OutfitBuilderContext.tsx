@@ -2,6 +2,7 @@
 
 import React, { createContext, useReducer, ReactNode } from 'react'
 import type { FilterCriteria, OutfitBuilderResult } from '@/lib/types/outfit'
+import type { Product } from '@/lib/types/product'
 import { BUDGET_CONFIG } from '@/lib/data/constants/filterOptions'
 
 /**
@@ -120,6 +121,8 @@ export interface OutfitBuilderContextValue {
   closeModal: () => void
   /** Update filter criteria (partial update) */
   updateFilters: (filters: Partial<FilterCriteria>) => void
+  /** Set the outfit results */
+  setOutfitResults: (results: OutfitBuilderResult) => void
   /** Apply filters and generate new outfits (requires filterEngine) */
   applyFilters: () => Promise<void>
   /** Reset builder to default state */
@@ -158,8 +161,14 @@ export function OutfitBuilderProvider({
   // Convenience methods
   const openModal = () => dispatch({ type: 'OPEN_MODAL' })
   const closeModal = () => dispatch({ type: 'CLOSE_MODAL' })
-  const updateFilters = (filters: Partial<FilterCriteria>) =>
+
+  const updateFilters = (filters: Partial<FilterCriteria>) => {
     dispatch({ type: 'UPDATE_FILTERS', payload: filters })
+  }
+
+  const setOutfitResults = (results: OutfitBuilderResult) => {
+    dispatch({ type: 'GENERATE_OUTFITS', payload: results })
+  }
 
   const resetBuilder = () => {
     dispatch({ type: 'RESET_BUILDER' })
@@ -187,6 +196,7 @@ export function OutfitBuilderProvider({
     openModal,
     closeModal,
     updateFilters,
+    setOutfitResults,
     applyFilters,
     resetBuilder,
   }
@@ -196,4 +206,16 @@ export function OutfitBuilderProvider({
       {children}
     </OutfitBuilderContext.Provider>
   )
+}
+
+/**
+ * Custom hook to use the Outfit Builder Context
+ * Must be used within an OutfitBuilderProvider
+ */
+export function useOutfitBuilder() {
+  const context = React.useContext(OutfitBuilderContext)
+  if (context === undefined) {
+    throw new Error('useOutfitBuilder must be used within an OutfitBuilderProvider')
+  }
+  return context
 }

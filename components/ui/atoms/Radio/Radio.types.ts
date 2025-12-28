@@ -1,6 +1,6 @@
 export interface RadioProps {
-  /** Radio name attribute (groups radios together) */
-  name: string
+  /** Radio name attribute (groups radios together). Optional when used inside RadioGroup. */
+  name?: string
   /** Radio value */
   value: string
   /** Whether this radio is checked */
