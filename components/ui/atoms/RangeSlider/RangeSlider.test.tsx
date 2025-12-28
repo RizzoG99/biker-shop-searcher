@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { RangeSlider } from './RangeSlider'
 
@@ -124,7 +124,7 @@ describe('RangeSlider', () => {
       expect(slider.value).toBe('75')
     })
 
-    it('calls onChange when value changes', () => {
+    it('calls onChange when value changes (after debounce)', async () => {
       const handleChange = vi.fn()
 
       render(<RangeSlider min={0} max={100} step={1} value={50} onChange={handleChange} />)
@@ -132,7 +132,13 @@ describe('RangeSlider', () => {
       const slider = screen.getByRole('slider')
       fireEvent.change(slider, { target: { value: '60' } })
 
-      expect(handleChange).toHaveBeenCalledWith(60)
+      // Wait for debounce (300ms delay)
+      await waitFor(
+        () => {
+          expect(handleChange).toHaveBeenCalledWith(60)
+        },
+        { timeout: 500 }
+      )
     })
 
     it('respects min value', () => {

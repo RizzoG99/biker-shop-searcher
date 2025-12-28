@@ -1,7 +1,8 @@
 'use client'
 
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useState, useEffect } from 'react'
 import { cn } from '@/lib/utils'
+import { useDebounce } from '@/lib/hooks/useDebounce'
 import type { RangeSliderProps } from './RangeSlider.types'
 
 /**
@@ -59,11 +60,31 @@ export function RangeSlider({
   const [isFocused, setIsFocused] = useState(false)
   const [isDragging, setIsDragging] = useState(false)
 
+  // Local state for immediate slider value (smooth UI feedback)
+  const [localValue, setLocalValue] = useState(value)
+
+  // Debounce the local value before propagating to parent (300ms)
+  // This batches rapid slider changes and reduces parent re-renders
+  const debouncedValue = useDebounce(localValue, 300)
+
+  // Sync local value with prop value when it changes externally
+  useEffect(() => {
+    setLocalValue(value)
+  }, [value])
+
+  // Propagate debounced value to parent onChange
+  useEffect(() => {
+    if (debouncedValue !== value) {
+      onChange(debouncedValue)
+    }
+  }, [debouncedValue, onChange, value])
+
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
-      onChange(Number(e.target.value))
+      // Update local value immediately for smooth UI
+      setLocalValue(Number(e.target.value))
     },
-    [onChange]
+    []
   )
 
   const handleFocus = useCallback(() => {
@@ -82,8 +103,8 @@ export function RangeSlider({
     setIsDragging(false)
   }, [])
 
-  // Calculate percentage for styling
-  const percentage = ((value - min) / (max - min)) * 100
+  // Calculate percentage for styling based on local value (immediate feedback)
+  const percentage = ((localValue - min) / (max - min)) * 100
 
   return (
     <div className={cn('w-full', className)}>
@@ -110,7 +131,7 @@ export function RangeSlider({
                   : 'bg-card-dark text-text-secondary border border-border-dark'
               )}
             >
-              {formatValue(value)}
+              {formatValue(localValue)}
             </div>
             {/* Arrow pointing down */}
             <div
@@ -131,7 +152,7 @@ export function RangeSlider({
           min={min}
           max={max}
           step={step}
-          value={value}
+          value={localValue}
           onChange={handleChange}
           onFocus={handleFocus}
           onBlur={handleBlur}
@@ -141,7 +162,7 @@ export function RangeSlider({
           onTouchEnd={handleMouseUp}
           aria-valuemin={min}
           aria-valuemax={max}
-          aria-valuenow={value}
+          aria-valuenow={localValue}
           aria-label={label}
           className={cn(
             'w-full h-2 rounded-full appearance-none cursor-pointer',

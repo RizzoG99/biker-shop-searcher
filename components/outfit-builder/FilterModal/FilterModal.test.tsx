@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { render, screen, fireEvent, within } from '@testing-library/react'
+import { render, screen, fireEvent, within, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { FilterModal } from './FilterModal'
 import type { FilterCriteria } from '@/lib/types/outfit'
@@ -368,6 +368,15 @@ describe('FilterModal', () => {
       const slider = screen.getByRole('slider')
       fireEvent.change(slider, { target: { value: '2000' } })
 
+      // Wait for debounced slider value to propagate (300ms delay)
+      await waitFor(
+        () => {
+          const badge = screen.getByText(/\$2000/)
+          expect(badge).toBeInTheDocument()
+        },
+        { timeout: 500 }
+      )
+
       // Click Apply
       await user.click(screen.getByRole('button', { name: 'Apply Changes' }))
 
@@ -489,6 +498,15 @@ describe('FilterModal', () => {
       // Change budget
       const slider = screen.getByRole('slider')
       fireEvent.change(slider, { target: { value: '2500' } })
+
+      // Wait for debounced slider value to propagate (300ms delay)
+      await waitFor(
+        () => {
+          const badge = screen.getByText(/\$2500/)
+          expect(badge).toBeInTheDocument()
+        },
+        { timeout: 500 }
+      )
 
       // Click Apply (skipping checkbox interaction due to jsdom timing issues)
       await user.click(screen.getByRole('button', { name: 'Apply Changes' }))

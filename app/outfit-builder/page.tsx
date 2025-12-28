@@ -1,9 +1,8 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useMemo, useCallback, lazy, Suspense } from 'react'
 import { Button } from '@/components/ui/atoms/Button'
 import { OutfitCard, FilterTags } from '@/components/outfit-builder'
-import { FilterModal } from '@/components/outfit-builder/FilterModal'
 import Header from '@/components/Header'
 import {
   OutfitBuilderProvider,
@@ -13,6 +12,13 @@ import {
 import { generateOutfits } from '@/lib/filtering/filterEngine'
 import { allProducts } from '@/lib/data/mock/products'
 import type { Outfit } from '@/lib/types/outfit'
+
+// Lazy load FilterModal for code-splitting (only loads when modal is first opened)
+const FilterModal = lazy(() =>
+  import('@/components/outfit-builder/FilterModal').then((module) => ({
+    default: module.FilterModal,
+  }))
+)
 
 /**
  * OutfitBuilderContent Component
@@ -24,47 +30,58 @@ function OutfitBuilderContent() {
   const { state, openModal, closeModal, updateFilters, setOutfitResults, resetBuilder } =
     useOutfitBuilder()
 
+  // Memoize the initial outfit generation to prevent recalculation on every render
+  const initialOutfits = useMemo(() => {
+    return generateOutfits(state.filterCriteria, allProducts)
+  }, [state.filterCriteria])
+
   // Generate initial outfits on mount
   useEffect(() => {
     if (!state.outfitResults) {
-      const result = generateOutfits(state.filterCriteria, allProducts)
-      setOutfitResults(result)
+      setOutfitResults(initialOutfits)
     }
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [initialOutfits, setOutfitResults, state.outfitResults])
 
   // Handle edit filters - opens the modal
-  const handleEditFilters = () => {
+  const handleEditFilters = useCallback(() => {
     openModal()
-  }
+  }, [openModal])
 
   // Handle restart builder - resets to default filters and regenerates
-  const handleRestartBuilder = () => {
+  // Memoize the default outfits to avoid recalculation
+  const defaultOutfits = useMemo(() => {
+    return generateOutfits(DEFAULT_FILTERS, allProducts)
+  }, [])
+
+  const handleRestartBuilder = useCallback(() => {
     resetBuilder()
-    // Regenerate with default filters
-    const result = generateOutfits(DEFAULT_FILTERS, allProducts)
-    setOutfitResults(result)
-  }
+    setOutfitResults(defaultOutfits)
+  }, [resetBuilder, setOutfitResults, defaultOutfits])
 
   // Handle filter modal apply - updates filters and regenerates outfits
-  const handleApplyFilters = (newFilters: typeof state.filterCriteria) => {
-    updateFilters(newFilters)
-    const result = generateOutfits(newFilters, allProducts)
-    setOutfitResults(result)
-    closeModal()
-  }
+  const handleApplyFilters = useCallback(
+    (newFilters: typeof state.filterCriteria) => {
+      updateFilters(newFilters)
+      // Generate new outfits based on updated filters
+      const result = generateOutfits(newFilters, allProducts)
+      setOutfitResults(result)
+      closeModal()
+    },
+    [updateFilters, setOutfitResults, closeModal]
+  )
 
-  // Placeholder handlers for Phase 3
-  const handleOutfitCta = (outfitId: string) => {
+  // Placeholder handlers for Phase 3 - memoized to prevent re-creation
+  const handleOutfitCta = useCallback((outfitId: string) => {
     if (process.env.NODE_ENV === 'development') {
       console.log('Outfit CTA clicked:', outfitId)
     }
-  }
+  }, [])
 
-  const handleProductClick = (productId: string) => {
+  const handleProductClick = useCallback((productId: string) => {
     if (process.env.NODE_ENV === 'development') {
       console.log('Product clicked:', productId)
     }
-  }
+  }, [])
 
   // Show loading state while generating outfits
   if (state.isGenerating || !state.outfitResults) {
@@ -170,13 +187,16 @@ function OutfitBuilderContent() {
         </div>
       </main>
 
-      {/* Filter Modal */}
-      <FilterModal
-        isOpen={state.isModalOpen}
-        onClose={closeModal}
-        initialFilters={state.filterCriteria}
-        onApply={handleApplyFilters}
-      />
+      {/* Filter Modal - Lazy loaded with Suspense */}
+      {/* Only renders when modal is opened, reducing initial bundle size */}
+      <Suspense fallback={null}>
+        <FilterModal
+          isOpen={state.isModalOpen}
+          onClose={closeModal}
+          initialFilters={state.filterCriteria}
+          onApply={handleApplyFilters}
+        />
+      </Suspense>
     </div>
   )
 }
