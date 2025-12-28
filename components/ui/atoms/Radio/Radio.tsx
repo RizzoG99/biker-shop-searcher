@@ -266,7 +266,6 @@ export function RadioGroup({ name, value, onChange, children, className }: Radio
         className={className}
         role="radiogroup"
         onKeyDown={handleKeyDown}
-        tabIndex={0}
       >
         {children}
       </div>
