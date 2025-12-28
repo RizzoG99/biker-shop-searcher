@@ -6,7 +6,19 @@
       "Bash(npm run type-check:*)",
       "Bash(git pull:*)",
       "Bash(git checkout:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git push:*)",
+      "Bash(gh pr create:*)",
+      "Bash(npm run dev:*)",
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "mcp__plugin_playwright_playwright__browser_take_screenshot",
+      "mcp__plugin_playwright_playwright__browser_resize",
+      "mcp__plugin_playwright_playwright__browser_close",
+      "Bash(gh pr view:*)",
+      "Bash(gh api graphql:*)",
+      "Bash(git commit:*)",
+      "Bash(npm test:*)",
+      "Skill(commit-commands:commit)"
     ]
   }
 }
