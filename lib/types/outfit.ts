@@ -20,11 +20,22 @@ export type RidingStyle = 'Sport Touring' | 'Adventure' | 'Street' | 'Track' | '
 export type WeatherCondition = 'All-Weather' | 'Summer' | 'Winter' | 'Rain'
 
 /**
+ * Usage context options for outfit customization
+ */
+export type UsageContext = 'City Commute' | 'Long Trip' | 'Off-road' | 'Track Day'
+
+/**
  * Filter criteria used to generate outfit recommendations
  */
 export interface FilterCriteria {
   /** Budget range display string (e.g., "$500 - $1500") */
   budgetRange: string
+
+  /** Numeric minimum budget for filtering */
+  budgetMin: number
+
+  /** Numeric maximum budget for filtering */
+  budgetMax: number
 
   /** Color preference */
   color: string
@@ -34,6 +45,9 @@ export interface FilterCriteria {
 
   /** Weather condition */
   weather: WeatherCondition
+
+  /** Usage contexts (multi-select) */
+  usageContext?: UsageContext[]
 }
 
 /**

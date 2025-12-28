@@ -2,6 +2,8 @@
  * Product-related type definitions for Outfit Builder
  */
 
+import type { RidingStyle, UsageContext } from './outfit'
+
 /**
  * Safety certification types recognized in the motorcycle gear industry
  */
@@ -49,4 +51,13 @@ export interface Product {
 
   /** Image alt text for accessibility */
   imageAlt: string
+
+  /** Primary color (for filtering) */
+  color?: string
+
+  /** Suitable riding styles (for filtering) */
+  ridingStyles?: RidingStyle[]
+
+  /** Suitable usage contexts (for filtering) */
+  usageContexts?: UsageContext[]
 }

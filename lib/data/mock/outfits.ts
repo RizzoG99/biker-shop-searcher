@@ -8,6 +8,8 @@ import { entryProducts, ridersChoiceProducts, proProducts } from './products'
 export const sportTouringOutfits: OutfitBuilderResult = {
   filters: {
     budgetRange: '$500 - $1500',
+    budgetMin: 500,
+    budgetMax: 1500,
     color: 'Black/Red',
     ridingStyle: 'Sport Touring',
     weather: 'All-Weather',
